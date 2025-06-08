@@ -102,7 +102,7 @@ MIT License
 
 ## ✍️ Author
 
-Your Name – [@yourhandle](https://github.com/yourhandle)
+Ritik Singh – [@iamritikbhardwaj](https://github.com/iamritikbhardwaj)
 Security engineer in training | Go enthusiast | Future OSCP 🛡️
 
 ---
