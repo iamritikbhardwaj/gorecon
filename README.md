@@ -37,7 +37,7 @@ gorecon is a lightweight, fast, and extensible web reconnaissance tool built in 
 ### Clone and Build
 
 ```bash
-git clone https://github.com/yourusername/gorecon.git
+git clone https://github.com/iamritikbhardwaj/gorecon.git
 cd gorecon
 go build -o gorecon main.go
 ```
@@ -58,7 +58,7 @@ Run gorecon:
 ./gorecon -targets domains.txt
 ```
 
-###Sample output:
+Sample output:
 
 [DNS] example.com -> CNAME: example.com.
 [PORT SCAN] Scanning example.com...
