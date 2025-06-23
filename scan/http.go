@@ -11,7 +11,7 @@ import (
 func ScanHTTP(target string) {
 	client := &http.Client{Timeout: 10 * time.Second}
 
-	resp, err := client.Get(target)
+	resp, err := client.Get("http://" + target)
 	if err != nil {
 		utils.Error(err.Error())
 		return
@@ -19,6 +19,6 @@ func ScanHTTP(target string) {
 	defer resp.Body.Close()
 
 	utils.Info(resp.Status)
-	fmt.Printf("%s ->  %s, %s\n", target, resp.StatusCode, resp.Status)
+	fmt.Printf("%s ->  %s, %s\n", target, http.StatusText(resp.StatusCode), resp.Header)
 
 }

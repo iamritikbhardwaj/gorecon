@@ -30,6 +30,7 @@ func main() {
 		domain := scanner.Text()
 		scan.LookupCNAME(domain)
 		scan.ScanPorts(domain) // 👈 Add this line
+		scan.ScanHTTP(domain)
 	}
 
 	if err := scanner.Err(); err != nil {
