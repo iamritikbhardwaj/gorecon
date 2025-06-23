@@ -1,96 +1,92 @@
 
-# 🛠️ gorecon - Go-Based Web Recon Scanner
+# gorecon - Go-Based Web Recon Scanner
 
-**gorecon** is a lightweight, fast, and extensible web reconnaissance tool built in Go. It performs network and HTTP probing on target domains to assist with security testing, bug bounty hunting, and red team recon.
+gorecon is a lightweight, fast, and extensible web reconnaissance tool built in Go. It performs network and HTTP probing on target domains to assist with security testing, bug bounty hunting, and red team recon.
 
 ---
 
 ## 🚀 Features
 
-- 🔎 Port probing on common web service ports (`80`, `443`, `8080`, etc.)
-- 🌐 HTTP(S) status & header enumeration
-- 🧠 Subdomain takeover detection (CNAME analysis)
-- 📂 Directory fuzzing using wordlists
-- ⚡ Highly concurrent and fast
-- 📄 JSON output (optional)
-- 🔧 Easily extendable (webhooks, dashboards, etc.)
+- 🔎 Port probing on common web service ports (80, 443, 8080, etc.)
+- 🌐 DNS CNAME lookup for subdomain analysis
+- 🧠 Foundation for subdomain takeover detection (coming soon)
+- ⚡ Highly concurrent and fast (future enhancement)
+- 📄 JSON output (planned)
+- 🔧 Easily extendable with additional scanning modules
 
 ---
 
-## 🧪 Example Usage
+## 🧰 Technologies Used
 
-```bash
-./gorecon -targets domains.txt
-````
-
-Provide a list of domains or IPs to scan for:
-
-
-example.com
-testsite.io
-192.168.1.1
-
----
-
-## 📦 Project Structure
-
-gorecon/
-├── main.go
-├── scan/
-│   ├── http.go       # HTTP request and analysis logic
-│   ├── ports.go      # TCP port scanner
-│   └── dns.go        # Subdomain/CNAME resolver
-├── utils/
-│   └── logger.go     # Logging utility
-├── wordlists/
-│   └── common.txt    # Directory brute-force list
-└── README.md
-
----
-
-## 🔧 Technologies Used
-
-| Task          | Go Package                    |
-| ------------- | ----------------------------- |
-| HTTP requests | `net/http`, `httptrace`       |
-| Port scanning | `net.Dial`, `net.DialTimeout` |
-| Concurrency   | Goroutines, Channels          |
-| CLI flags     | `flag` or `cobra`             |
-| DNS lookups   | `net.LookupCNAME`             |
-
----
-
-## 🧠 What You’ll Learn
-
-* Go programming with real-world cybersecurity use cases
-* Writing concurrent, fast, and maintainable code
-* Web technologies: HTTP headers, status codes, DNS
-* Recon techniques used in bug bounty and penetration testing
-
----
-
-## 🌱 Future Extensions
-
-* ✅ JSON output for scripting and integration
-* ✅ Slack/Discord webhook support
-* ✅ Web dashboard using Go templates
-* ✅ Multi-threaded throttling and rate limiting
-* ✅ Plugin system or API mode
+| Task             | Go Package                   |
+|------------------|------------------------------|
+| HTTP requests    | `net/http`                   |
+| Port scanning    | `net.DialTimeout`            |
+| DNS lookups      | `net.LookupCNAME`            |
+| CLI flags        | `flag`                      |
+| Concurrency      | Goroutines and Channels (planned) |
 
 ---
 
 ## 🏁 Getting Started
 
+### Prerequisites
+
+- Go 1.20+ installed
+
+### Clone and Build
+
 ```bash
+git clone https://github.com/yourusername/gorecon.git
+cd gorecon
 go build -o gorecon main.go
+```
+
+### Usage
+
+Create a text file with target domains or IP addresses, one per line. For example:
+
+```text
+example.com
+google.com
+unclaimed.github.io
+```
+
+Run gorecon:
+
+```bash
 ./gorecon -targets domains.txt
 ```
 
-Add your own wordlists in `wordlists/`, or use popular ones from [SecLists](https://github.com/danielmiessler/SecLists).
+###Sample output:
+
+[DNS] example.com -> CNAME: example.com.
+[PORT SCAN] Scanning example.com...
+[OPEN] example.com:80
+[OPEN] example.com:443
 
 ---
 
-## 📸 Screenshots (Coming Soon)
+## ⚙️ CLI Flags
+
+| Flag       | Description                            | Default    |
+| ---------- | -------------------------------------- | ---------- |
+| `-targets` | Path to file with target domains/IPs   | *Required* |
+| `-timeout` | Timeout for network requests (seconds) | 5          |
+| `-v`       | Enable verbose logging                 | false      |
+
+---
+
+## 📚 Future Roadmap
+
+* ✅ DNS CNAME Lookup
+* ✅ Port scanning on common web ports
+* 🔲 Concurrency for faster scans
+* 🔲 HTTP status and header enumeration
+* 🔲 Subdomain takeover detection
+* 🔲 Directory brute forcing with wordlists
+* 🔲 JSON output and report generation
+* 🔲 Webhooks and dashboard integration
 
 ---
 
@@ -102,15 +98,14 @@ MIT License
 
 ## ✍️ Author
 
-Ritik Singh – [@iamritikbhardwaj](https://github.com/iamritikbhardwaj)
-Security engineer in training | Go enthusiast | Future OSCP 🛡️
+Ritik Singh – Go enthusiast and security engineer in training
 
 ---
 
 ## 📚 Related Resources
 
 * [TryHackMe](https://tryhackme.com)
-* [Hack The Box](https://hackthebox.com)
-* [OWASP Top 10](https://owasp.org)
-* [Go net/http package](https://pkg.go.dev/net/http)
+* [Hack The Box](https://hackthebox.eu)
+* [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 
+---
