@@ -1,0 +1,33 @@
+# Ignore the domains.txt file
+domains.txt
+
+# Ignore Go build outputs
+/bin/
+/pkg/
+/coverage/
+
+# Ignore binary files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Ignore test result files
+*.out
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.iml
+
+# Ignore vendor dependencies
+vendor/
+
