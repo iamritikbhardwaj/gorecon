@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	// defining a flag to specify the file
 	targets := flag.String("targets", "", "Path to file with target domains")
 	flag.Parse()
 
