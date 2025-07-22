@@ -31,3 +31,5 @@ domains.txt
 # Ignore vendor dependencies
 vendor/
 
+# Ignore .DS_Store files that Mac OSX creates
+.DS_Store
